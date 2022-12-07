@@ -1,0 +1,23 @@
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
+charset = utf-8
+
+[Makefile]
+indent_style = tab
+indent_size = 4
+
+# Don't want the editor changing \r\n line endings to \n
+# for our sample emails, as that'd make them non-compliant
+# with RFC2822.
+[priv/sample_emails/s3/mailgrip-dev/received-emails/**]
+charest = unset
+end_of_line = unset
+insert_final_newline = unset
+trim_trailing_whitespace = unset
+indent_size = unset
+indent_style = unset

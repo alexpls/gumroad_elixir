@@ -42,7 +42,7 @@ end
 
 ## Configuration
 
-Configuration properties on the `:gumroad` application are:
+Configuration properties on the `:gumroad_elixir` application are:
 
 - `:access_token` (required) - The access token used to authenticate to the Gumroad API.
   _(For details on how to create an access token, see [Gumroad docs](https://help.gumroad.com/article/280-create-application-api))._
@@ -73,7 +73,7 @@ Gumroad doesn't currently offer a native solution for local development or testi
 To make up for this, this package includes local dev and testing mocks which ensure that
 you don't have to make calls to the live Gumroad API from non-prod environments.
 
-To use mock responses, configure `:gumroad` `:client` to `Gumroad.Client.Mock` (more details on
+To use mock responses, configure `:gumroad_elixir` `:client` to `Gumroad.Client.Mock` (more details on
 the [`Gumroad.Client docs`](https://hexdocs.pm/gumroad_elixir/Gumroad.Client.html)).
 
 Now when you perform an action that would create a request against the Gumroad API, you'll get a

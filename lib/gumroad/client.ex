@@ -11,16 +11,16 @@ defmodule Gumroad.Client do
       _without_ making requests to the Gurmoad API.
 
   You can configure your application to use either of these implementation by setting
-  the `:gumroad`, `:client` config property:
+  the `:gumroad_elixir`, `:client` config property:
 
   ```elixir
   # In test mode, you'd probably want to use the Mock implementation
   # config/test.exs
-  config :gumroad, :client, Gumroad.Client.Mock
+  config :gumroad_elixir, :client, Gumroad.Client.Mock
 
   # In prod, you should use the Live implementation (which is the default)
   # config/prod.exs
-  config :gumroad, :client, Gumroad.Client.Live
+  config :gumroad_elixir, :client, Gumroad.Client.Live
   ```
   """
 

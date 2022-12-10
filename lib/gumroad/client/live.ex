@@ -167,6 +167,6 @@ defmodule Gumroad.Client.Live do
   end
 
   defp access_token do
-    Application.fetch_env!(:gumroad, :access_token)
+    Application.fetch_env!(:gumroad_elixir, :access_token)
   end
 end

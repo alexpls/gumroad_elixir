@@ -21,8 +21,14 @@ defmodule Gumroad.LiveCase do
   end
 
   setup do
-    Application.put_env(:gumroad, :client, Gumroad.Client.Live)
-    Application.put_env(:gumroad, :access_token, System.fetch_env!("GUMROAD_TEST_ACCESS_TOKEN"))
-    on_exit(fn -> Application.put_env(:gumroad, :client, Gumroad.Client.Mock) end)
+    Application.put_env(:gumroad_elixir, :client, Gumroad.Client.Live)
+
+    Application.put_env(
+      :gumroad_elixir,
+      :access_token,
+      System.fetch_env!("GUMROAD_TEST_ACCESS_TOKEN")
+    )
+
+    on_exit(fn -> Application.put_env(:gumroad_elixir, :client, Gumroad.Client.Mock) end)
   end
 end

@@ -11,7 +11,7 @@ defmodule Gumroad do
   @doc """
   The Gumroad client to use.
 
-  Setting the `:gumroad` `:client` config value will determine which client
+  Setting the `:gumroad_elixir` `:client` config value will determine which client
   gets returned by this function.
 
   In production, this will be `Gumroad.Client.Live`, for testing this will
@@ -19,7 +19,7 @@ defmodule Gumroad do
   """
   @spec client() :: Gumroad.Client
   def client do
-    Application.get_env(:gumroad, :client, Gumroad.Client.Live)
+    Application.get_env(:gumroad_elixir, :client, Gumroad.Client.Live)
   end
 
   def get_products() do

@@ -13,6 +13,10 @@ See the "Incomplete implementation" section below for more details.
 
 ---
 
+## Documentation
+
+Full documentation available on [HexDocs](https://hexdocs.pm/gumroad_elixir/Gumroad.html).
+
 ## Usage
 
 ```elixir

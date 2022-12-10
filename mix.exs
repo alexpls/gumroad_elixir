@@ -11,26 +11,19 @@ defmodule Gumroad.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       elixirc_paths: elixirc_paths(Mix.env()),
-
-      # Package
-
       package: [
-        name: "gumroad_elixir",
+        description: "Gumroad API client for Elixir applications",
         maintainers: ["Alex Plescan"],
         files: ~w(.formatter.exs mix.exs README.md LICENSE.md lib),
         links: %{"GitHub" => @source_url},
         licenses: ["MIT"]
       ],
-
-      # Docs
-      name: "gumroad_elixir",
-      description: "Gumroad API client for Elixir applications",
-      source_url: @source_url,
-      source_ref: "master",
-      homepage_url: @source_url,
       docs: [
         main: "Gumroad",
+        source_url: @source_url,
+        source_ref: "master",
         extras: ["README.md"],
+        formatters: ["html"],
         groups_for_modules: [
           Clients: [
             Gumroad.Client,

@@ -25,6 +25,7 @@ iex> products
 [%Gumroad.Product{id: "...", name: "..."}, %Gumroad.Product{id: "...", name: "..."}]
 
 iex> {:ok, subscribers} = Gumroad.get_subscribers(List.first(products).id)
+iex> subscribers
 [%Gumroad.Subscriber{id: "...", status: "alive"}]
 ```
 
@@ -40,6 +41,13 @@ def deps do
 end
 ```
 
+Then, configure your [Gumroad access token](https://help.gumroad.com/article/280-create-application-api):
+
+```elixir
+# config.exs
+config :gumroad_elixir, :access_token, "your-gumroad-access-token"
+```
+
 ## Configuration
 
 Configuration properties on the `:gumroad_elixir` application are:
@@ -48,22 +56,32 @@ Configuration properties on the `:gumroad_elixir` application are:
   _(For details on how to create an access token, see [Gumroad docs](https://help.gumroad.com/article/280-create-application-api))._
 
 - `:client` (defaults to `Gumroad.Client.Live`) - The client implementation to use when handling API
-  operations. More details on the [`Gumroad.Client` docs](https://hexdocs.pm/gumroad_elixir/Gumroad.Client.html).
+  operations. Used for swithcing between a mock client and one that makes requests against
+  the live Gumroad API. More details on the [`Gumroad.Client` docs](https://hexdocs.pm/gumroad_elixir/Gumroad.Client.html).
 
 ## Error handling
 
 Error messages sent by Gumroad's API in response to failed requests
-are propagated as-is to your application:
+are propagated as-is to your application, with the `from_gumroad` property
+set to `true`:
 
 ```elixir
 iex> Gumroad.get_sale("not-a-real-sale")
-{:error, "The sale was not found."}
+{:error, %Gumroad.Error{from_gumroad: true, reason: "The sale was not found."}}
+```
+
+Errors caused by other reasons (like network timeouts) have the `from_gumroad`
+property set to `false`:
+
+```elixir
+# Disconnect wi-fi, and...
+iex> Gumroad.Client.get_sale("not-a-real-sale")
+{:error, %Gumroad.Error{from_gumroad: false, reason: :timeout}}
 ```
 
 ## Authentication
 
-Authentication is handled per Gumroad's API docs. An access token is included as a parameter
-on each request made to the Gumroad API.
+An access token is included as a parameter on each request made to the Gumroad API.
 
 To create an access token, see [Gumroad's docs](https://help.gumroad.com/article/280-create-application-api).
 
@@ -73,11 +91,11 @@ Gumroad doesn't currently offer a native solution for local development or testi
 To make up for this, this package includes local dev and testing mocks which ensure that
 you don't have to make calls to the live Gumroad API from non-prod environments.
 
-To use mock responses, configure `:gumroad_elixir` `:client` to `Gumroad.Client.Mock` (more details on
+To use mock responses, set `:gumroad_elixir` `:client` to `Gumroad.Client.Mock` (more details on
 the [`Gumroad.Client docs`](https://hexdocs.pm/gumroad_elixir/Gumroad.Client.html)).
 
 Now when you perform an action that would create a request against the Gumroad API, you'll get a
-mocked response instead without having to contact the Gumroad API:
+mocked response instead:
 
 ```elixir
 iex> Gumroad.get_resource_subscriptions("abc")

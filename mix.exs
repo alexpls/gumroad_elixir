@@ -15,13 +15,16 @@ defmodule Gumroad.MixProject do
       # Package
 
       package: [
+        name: "gumroad_elixir",
         maintainers: ["Alex Plescan"],
-        files: ~w(.formatter.exs mix.exs README.md lib),
-        links: %{"GitHub" => @source_url}
+        files: ~w(.formatter.exs mix.exs README.md LICENSE.md lib),
+        links: %{"GitHub" => @source_url},
+        licenses: ["MIT"]
       ],
 
       # Docs
       name: "gumroad_elixir",
+      description: "Gumroad API client for Elixir applications",
       source_url: @source_url,
       source_ref: "master",
       homepage_url: @source_url,

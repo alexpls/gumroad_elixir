@@ -23,4 +23,7 @@ jobs:
       - run: mix deps.get && mix deps.compile
       - run: mix format --check-formatted
       - run: mix credo
-      - run: mix test --trace --include live
+      - name: Test
+        env:
+          GUMROAD_TEST_ACCESS_TOKEN: ${{ secrets.GUMROAD_TEST_ACCESS_TOKEN }}
+        run: mix test --trace --include live

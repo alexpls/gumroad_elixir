@@ -1,5 +1,7 @@
 # gumroad_elixir
 
+[![Hex.pm](https://img.shields.io/hexpm/v/gumroad_elixir)](https://hex.pm/packages/gumroad_elixir) [![Hex Docs](https://img.shields.io/badge/hex-docs-9768d1.svg)](https://hexdocs.pm/gumroad_elixir) ![.github/workflows/ci.yml](https://github.com/alexpls/gumroad_elixir/actions/workflows/ci.yml/badge.svg)
+
 <!-- MDOC -->
 
 An unofficial [Gumroad](https://gumroad.com) API client for Elixir applications.

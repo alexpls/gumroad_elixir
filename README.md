@@ -56,7 +56,7 @@ Configuration properties on the `:gumroad_elixir` application are:
   _(For details on how to create an access token, see [Gumroad docs](https://help.gumroad.com/article/280-create-application-api))._
 
 - `:client` (defaults to `Gumroad.Client.Live`) - The client implementation to use when handling API
-  operations. Used for swithcing between a mock client and one that makes requests against
+  operations. Used for switching between a mock client and one that makes requests against
   the live Gumroad API. More details on the [`Gumroad.Client` docs](https://hexdocs.pm/gumroad_elixir/Gumroad.Client.html).
 
 ## Error handling

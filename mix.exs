@@ -55,7 +55,7 @@ defmodule Gumroad.MixProject do
     [
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:ex_doc, ">= 0.0.0", only: :dev, runtime: false},
-      {:httpoison, "~> 1.8"},
+      {:httpoison, "~> 2.1"},
       {:jason, "~> 1.2"}
     ]
   end

@@ -27,3 +27,6 @@ gumroad_elixir-*.tar
 
 # ExDoc output folder
 /doc
+
+# Private environment variables
+.envrc

@@ -134,7 +134,7 @@ and whether they've been implemented in this package.
 | `GET /sales/:id`                                                                    | ✅           |
 | `GET /subscribers/:id`                                                              | ✅           |
 | `GET /sales`                                                                        | ✅           |
-| `GET /products/:id`                                                                 | ❌           |
+| `GET /products/:id`                                                                 | ✅           |
 | `DELETE /products/:id`                                                              | ❌           |
 | `PUT /products/:id/enable`                                                          | ❌           |
 | `PUT /products/:id/disable`                                                         | ❌           |

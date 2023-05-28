@@ -23,6 +23,19 @@ defmodule Gumroad.Client.Live do
   end
 
   @impl Gumroad.Client
+  def get_product(product_id) when is_binary(product_id) do
+    get("/products/#{product_id}")
+    |> parse_error()
+    |> case do
+      {:ok, %{body: %{"product" => product}}} ->
+        {:ok, Product.new(product)}
+
+      {:error, reason} ->
+        {:error, reason}
+    end
+  end
+
+  @impl Gumroad.Client
   def get_resource_subscriptions(resource_name) when is_binary(resource_name) do
     "/resource_subscriptions"
     |> add_query_param(%{"resource_name" => resource_name})

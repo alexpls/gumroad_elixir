@@ -22,6 +22,15 @@ defmodule Gumroad.Client.LiveTest do
       assert %Gumroad.Product{} = product
     end
 
+    test "fetches a single product", %{product: %{id: id}} do
+      assert {:ok, %Gumroad.Product{name: "Test Product"}} = Gumroad.get_product(id)
+    end
+
+    test "repsonds with error if the product doesn't exist" do
+      assert {:error, %Gumroad.Error{reason: "The product was not found."}} =
+               Gumroad.get_product("testing-fake-id")
+    end
+
     test "fetches subscribers", %{product: product} do
       {:ok, _} = Gumroad.get_subscribers(product.id)
     end

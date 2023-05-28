@@ -27,6 +27,12 @@ defmodule Gumroad do
     client().get_products()
   end
 
+  @spec get_product(product_id :: String.t()) ::
+          {:ok, Gumroad.Product.t()} | {:error, Gumroad.Error.t()}
+  def get_product(product_id) do
+    client().get_product(product_id)
+  end
+
   @spec get_resource_subscriptions(resource_name :: String.t()) ::
           {:ok, list(Gumroad.ResourceSubscription.t())} | {:error, Gumroad.Error.t()}
   def get_resource_subscriptions(resource_name) when is_binary(resource_name) do

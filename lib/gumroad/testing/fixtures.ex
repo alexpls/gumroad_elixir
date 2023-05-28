@@ -10,9 +10,12 @@ defmodule Gumroad.Testing.Fixtures do
 
   alias Gumroad.{Sale, Subscriber, ResourceSubscription, Product, IdGenerator}
 
-  @spec product() :: Product.t()
-  def product() do
-    %Product{id: "test-product-id", name: "My test product"}
+  @spec product(map()) :: Product.t()
+  def product(attrs \\ %{}) do
+    struct(
+      %Product{id: "test-product-id", name: "My test product"},
+      attrs
+    )
   end
 
   @spec resource_subscription(map()) :: ResourceSubscription.t()

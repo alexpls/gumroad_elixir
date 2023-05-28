@@ -11,6 +11,11 @@ defmodule Gumroad.Client.Mock do
   end
 
   @impl Gumroad.Client
+  def get_product(product_id) do
+    {:ok, product(%{id: product_id})}
+  end
+
+  @impl Gumroad.Client
   def get_resource_subscriptions(resource_name) when is_binary(resource_name) do
     {:ok, [resource_subscription(%{resource_name: resource_name})]}
   end

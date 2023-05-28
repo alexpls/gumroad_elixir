@@ -35,6 +35,17 @@ defmodule Gumroad.Client do
   @callback get_products() :: {:ok, list(Gumroad.Product.t())} | {:error, Gumroad.Error.t()}
 
   @doc """
+  Retrieve the details of a product.
+
+  ## API
+
+  When using `Gumroad.Client.Live`, this will call the Gumroad API at
+  `GET /products/:id`.
+  """
+  @callback get_product(product_id :: String.t()) ::
+              {:ok, Gumroad.Product.t()} | {:error, Gumroad.Error.t()}
+
+  @doc """
   Retrieve all active subscriptions for the given resource name.
 
   Valid resource names are:
